@@ -2,6 +2,7 @@ import Body from "./Components/Body";
 import Browse from "./Components/Browse";
 import Login from "./Components/Login";
 import {RouterProvider, createBrowserRouter} from "react-router-dom"
+import Signup from "./Components/Signup";
 
 function App() {
 
@@ -14,6 +15,10 @@ function App() {
             path: "/",
             element: <Login />
         },
+        {
+          path: "/signup",
+          element: <Signup />
+      },
       
           {
               path: "/browse",
