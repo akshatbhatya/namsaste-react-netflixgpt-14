@@ -2,7 +2,6 @@
   "name": "namsaste-react-netflixgpt-14",
   "version": "1.0.0",
   "description": "lerning authentication and protected routes",
-  "main": "index.js",
   "scripts": {
     "test": "jest"
   },
