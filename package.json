@@ -1,0 +1,23 @@
+{
+  "name": "namsaste-react-netflixgpt-14",
+  "version": "1.0.0",
+  "description": "lerning authentication and protected routes",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akshatbhatya/namsaste-react-netflixgpt-14.git"
+  },
+  "keywords": [
+    "react",
+    "js"
+  ],
+  "author": "akshat",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/akshatbhatya/namsaste-react-netflixgpt-14/issues"
+  },
+  "homepage": "https://github.com/akshatbhatya/namsaste-react-netflixgpt-14#readme"
+}
