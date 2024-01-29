@@ -11,8 +11,8 @@ function Signup() {
     </div>
     <div className='absolute top-[200px] left-[500px]'>
         
-
      <Forms/>
+     
     </div>
     </>
   )
