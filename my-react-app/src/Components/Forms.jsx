@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import {createUserWithEmailAndPassword } from "firebase/auth";
+import {signInWithEmailAndPassword } from "firebase/auth";
+import { initializeApp } from "firebase/app";
 import FormValidation from './FormValidation';
+import { auth } from '../Utils/firebase';
 
 function Forms() {
 
@@ -24,7 +27,7 @@ function Forms() {
         if (message) return
 
         if (isSign) {
-            const auth = getAuth();
+
             createUserWithEmailAndPassword(auth, formInput.email, formInput.password)
                 .then((userCredential) => {
                     // Signed up 
@@ -35,7 +38,21 @@ function Forms() {
                 .catch((error) => {
                     const errorCode = error.code;
                     const errorMessage = error.message;
+                    setErrorMessage(errorMessage)
                     // ..
+                });
+        } else {
+            signInWithEmailAndPassword(auth, formInput.email, formInput.password)
+                .then((userCredential) => {
+                    // Signed in 
+                    const user = userCredential.user;
+                    console.log(user);
+                    // ...
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    setErrorMessage(errorMessage)
                 });
         }
     }
