@@ -3,6 +3,8 @@ import Browse from "./Components/Browse";
 import Login from "./Components/Login";
 import {RouterProvider, createBrowserRouter} from "react-router-dom"
 import Signup from "./Components/Signup";
+import {Provider} from "react-redux"
+import MovieStore from "./Store/MovieStore";
 
 function App() {
 
@@ -31,7 +33,9 @@ function App() {
 ])
   return (
     <>
+    <Provider store={MovieStore}>
     <RouterProvider router={routerOfElement}/>
+    </Provider>
     </>
   );
 }
