@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import FormValidation from './FormValidation';
 
 function Forms() {
@@ -6,28 +7,44 @@ function Forms() {
     let intialData = {
         email: "",
         password: "",
-        fullname: ""
-
-
+        fullname: "",
     }
 
     let [isSign, setSign] = useState(false);
 
     let [formInput, setFormInput] = useState(intialData);
-    let [errorMessage,setErrorMessage]=useState(null)
+    let [errorMessage, setErrorMessage] = useState(null)
 
 
     let handleSubmit = (e) => {
         e.preventDefault()
-       let message= FormValidation(formInput.email,formInput.password);
-       setErrorMessage(message)
+        let message = FormValidation(formInput.email, formInput.password);
+        setErrorMessage(message)
+
+        if (message) return
+
+        if (isSign) {
+            const auth = getAuth();
+            createUserWithEmailAndPassword(auth, formInput.email, formInput.password)
+                .then((userCredential) => {
+                    // Signed up 
+                    const user = userCredential.user;
+                    console.log(user);
+                    // ...
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    // ..
+                });
+        }
     }
 
 
     let handleOnchange = (e) => {
         let target = e.target
         setFormInput((prev) => ({ ...prev, [target.name]: target.value }));
-        
+
 
     }
     return (
@@ -38,7 +55,7 @@ function Forms() {
                 <hr className='border border-white w-[200px]' />
 
                 {
-                    isSign && <input type="email" placeholder='full name' className='capitalize w-auto text-white p-2 bg-slate-800' name='fullname' onChange={handleOnchange} value={formInput.fullname} />
+                    isSign && <input type="text" placeholder='full name' className='capitalize w-auto text-white p-2 bg-slate-800' name='fullname' onChange={handleOnchange} value={formInput.fullname} />
                 }
 
                 <input type="email" placeholder='Enter your Email' className='capitalize w-auto text-white p-2 bg-slate-800' name='email' onChange={handleOnchange} value={formInput.email} />
