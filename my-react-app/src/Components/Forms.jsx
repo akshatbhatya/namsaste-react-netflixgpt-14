@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import {createUserWithEmailAndPassword } from "firebase/auth";
 import {signInWithEmailAndPassword } from "firebase/auth";
-import { initializeApp } from "firebase/app";
 import FormValidation from './FormValidation';
 import { auth } from '../Utils/firebase';
 
