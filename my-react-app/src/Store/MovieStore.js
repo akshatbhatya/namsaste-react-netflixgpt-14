@@ -1,5 +1,5 @@
 import {configureStore} from "@reduxjs/toolkit"
-let CartStore=configureStore({
+let MovieStore=configureStore({
 
     reducer:{
         
@@ -9,4 +9,4 @@ let CartStore=configureStore({
 })
 
 
-export default CartStore;
+export default MovieStore;
