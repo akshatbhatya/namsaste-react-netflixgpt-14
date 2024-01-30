@@ -19,7 +19,6 @@ function Forms() {
 
     let handleSubmit = (e) => {
         e.preventDefault()
-        console.log(formInput.email,formInput.password);
        let message= FormValidation(formInput.email,formInput.password);
        setErrorMessage(message)
     }
