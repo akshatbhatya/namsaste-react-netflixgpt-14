@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import {createUserWithEmailAndPassword } from "firebase/auth";
-import {signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import FormValidation from './FormValidation';
 import { auth } from '../Utils/firebase';
 import { useNavigate } from 'react-router-dom';
+import { getAuth, updateProfile } from "firebase/auth";
 
 function Forms() {
-    let navigate=useNavigate()
+    let navigate = useNavigate()
 
     let intialData = {
         email: "",
@@ -34,9 +35,21 @@ function Forms() {
                     // Signed up 
                     const user = userCredential.user;
                     console.log(user);
-                    navigate("/browse")
+                    
                     // ...
+                    updateProfile(user, {
+                        displayName:formInput.fullname, photoURL: "https://w7.pngwing.com/pngs/178/595/png-transparent-user-profile-computer-icons-login-user-avatars-thumbnail.png"
+                      }).then(() => {
+                        // Profile updated!
+                        // ...
+                        navigate("/browse")
+                      }).catch((error) => {
+                        // An error occurred
+                        // ...
+                        setErrorMessage(error)
+                      })
                 })
+                
                 .catch((error) => {
                     const errorCode = error.code;
                     const errorMessage = error.message;
