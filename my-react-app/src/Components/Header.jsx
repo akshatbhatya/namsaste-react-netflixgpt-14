@@ -17,17 +17,18 @@ const Header = () => {
     let dispatch=useDispatch()
 
     let HandleSignOut = () => {
+
+        
         signOut(auth).then(() => {
-            navigate("/")
+            // navigate("/")
             // Sign-out successful.
         }).catch((error) => {
             // An error happened.
             navigate("/error")
         });
     }
-
     useEffect(()=>{
-        onAuthStateChanged(auth, (user) => {
+       let unsubscribe= onAuthStateChanged(auth, (user) => {
           if (user) {
             const { uid ,email,displayName,photoURL}=user;
       
@@ -41,8 +42,14 @@ const Header = () => {
             dispatch(removeUser())
             navigate("/")
           }
+
+          return ()=>{
+            unsubscribe()
+
+          }
         });
       },[])
+    
 
     let isSignup = getLocationOfPage.pathname === "/signup";
     let browsePage = getLocationOfPage.pathname === "/browse";
