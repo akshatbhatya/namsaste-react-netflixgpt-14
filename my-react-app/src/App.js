@@ -15,7 +15,7 @@ import {addUser,removeUser} from "./Store/MovieSlice"
 function App() {
 
   let dispatch=useDispatch()
-  let navigate=useNavigate()
+
 
   let routerOfElement = createBrowserRouter([
     {
@@ -47,16 +47,12 @@ useEffect(()=>{
       const { uid ,email,displayName}=user;
 
       dispatch(addUser({uid:uid,email:email,displayName:displayName}))
-      navigate("/browse")
 
-
-     
       // ...
     } else {
       // User is signed out
       // ...
       dispatch(removeUser())
-      navigate("/")
     }
   });
 },[])

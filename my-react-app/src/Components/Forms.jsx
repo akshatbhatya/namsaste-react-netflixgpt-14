@@ -3,8 +3,10 @@ import {createUserWithEmailAndPassword } from "firebase/auth";
 import {signInWithEmailAndPassword } from "firebase/auth";
 import FormValidation from './FormValidation';
 import { auth } from '../Utils/firebase';
+import { useNavigate } from 'react-router-dom';
 
 function Forms() {
+    let navigate=useNavigate()
 
     let intialData = {
         email: "",
@@ -32,6 +34,7 @@ function Forms() {
                     // Signed up 
                     const user = userCredential.user;
                     console.log(user);
+                    navigate("/browse")
                     // ...
                 })
                 .catch((error) => {
@@ -46,6 +49,7 @@ function Forms() {
                     // Signed in 
                     const user = userCredential.user;
                     console.log(user);
+                    navigate("/browse")
                     // ...
                 })
                 .catch((error) => {
