@@ -23,5 +23,5 @@ let MovieSlice=createSlice(
     
 )
 
-const {addUser,removeUser}=MovieSlice.actions;
+export const {addUser,removeUser}=MovieSlice.actions;
 export default MovieSlice.reducer;
