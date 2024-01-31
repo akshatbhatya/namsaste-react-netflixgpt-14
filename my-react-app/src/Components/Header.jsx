@@ -1,9 +1,22 @@
 import React from 'react'
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
+import { signOut } from "firebase/auth";
+import { auth } from '../Utils/firebase';
 
 
 const Header = () => {
     let getLocationOfPage = useLocation();
+    let navigate=useNavigate()
+
+    let HandleSignOut = () => {
+        signOut(auth).then(() => {
+            navigate("/")
+            // Sign-out successful.
+        }).catch((error) => {
+            // An error happened.
+            navigate("/error")
+        });
+    }
 
     let isSignup = getLocationOfPage.pathname === "/signup";
     let browsePage = getLocationOfPage.pathname === "/browse";
@@ -13,10 +26,10 @@ const Header = () => {
             <nav>
 
                 {
-                    isSignup ||browsePage? null:(<NavLink to={"/signup"}><button className="list-none bg-red-600 px-3 py-2 text-white rounded-md">sign up</button></NavLink>)
+                    isSignup || browsePage ? null : (<NavLink to={"/signup"}><button className="list-none bg-red-600 px-3 py-2 text-white rounded-md">sign up</button></NavLink>)
                 }
                 {
-                    browsePage && (<NavLink to={"/"}><button className="list-none bg-red-600 px-3 py-2 text-white rounded-md">sign Out</button></NavLink>)
+                    browsePage && (<NavLink ><button className="list-none bg-red-600 px-3 py-2 text-white rounded-md" onClick={HandleSignOut}>sign Out</button></NavLink>)
                 }
             </nav>
 
