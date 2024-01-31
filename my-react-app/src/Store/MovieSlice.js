@@ -12,7 +12,7 @@ let MovieSlice=createSlice(
                     state.push(action.payload)
                     
                 },
-                removeUser:(state,action)=>{
+                removeUser:()=>{
                     return null
                     
                 }
