@@ -13,7 +13,7 @@ let MovieSlice=createSlice(
                     
                 },
                 removeUser:()=>{
-                    return null
+                    return initialState
                     
                 }
             }

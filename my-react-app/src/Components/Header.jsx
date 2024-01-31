@@ -2,7 +2,8 @@ import React from 'react'
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { signOut } from "firebase/auth";
 import { auth } from '../Utils/firebase';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+
 
 
 const Header = () => {
@@ -10,6 +11,7 @@ const Header = () => {
     console.log(data);
     let getLocationOfPage = useLocation();
     let navigate = useNavigate()
+    let dispatch=useDispatch()
 
     let HandleSignOut = () => {
         signOut(auth).then(() => {
@@ -31,10 +33,25 @@ const Header = () => {
                 {
                     isSignup || browsePage ? null : (<NavLink to={"/signup"}><button className="list-none bg-red-600 px-3 py-2 text-white rounded-md">sign up</button></NavLink>)
                 }
-                <img src={data.photoURL} alt="" />
+                {
+                    browsePage && (
+                         <h2>{data.displayName}</h2>
+                        
+                        
+                    )
+                 }
+               {console.log(data.displayName)} 
+                 {
+                    browsePage && (
+                        <img src={data.photoURL} alt="" />
+                        
+                    )
+                 }
                 {
                     browsePage && (<NavLink ><button className="list-none bg-red-600 px-3 py-2 text-white rounded-md" onClick={HandleSignOut}>sign Out</button></NavLink>)
                 }
+
+              
             </nav>
 
         </div>
@@ -42,3 +59,5 @@ const Header = () => {
 }
 
 export default Header;
+
+

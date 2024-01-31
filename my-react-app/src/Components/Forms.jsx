@@ -4,10 +4,11 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import FormValidation from './FormValidation';
 import { auth } from '../Utils/firebase';
 import { useNavigate } from 'react-router-dom';
-import { getAuth, updateProfile } from "firebase/auth";
+import { updateProfile } from "firebase/auth";
 
 function Forms() {
     let navigate = useNavigate()
+    let photoURL = "https://w7.pngwing.com/pngs/178/595/png-transparent-user-profile-computer-icons-login-user-avatars-thumbnail.png"
 
     let intialData = {
         email: "",
@@ -35,21 +36,26 @@ function Forms() {
                     // Signed up 
                     const user = userCredential.user;
                     console.log(user);
-                    
+
                     // ...
                     updateProfile(user, {
-                        displayName:formInput.fullname, photoURL: "https://w7.pngwing.com/pngs/178/595/png-transparent-user-profile-computer-icons-login-user-avatars-thumbnail.png"
-                      }).then(() => {
+                        displayName: formInput.fullname, photoURL: photoURL
+
+
+                    }).then(() => {
                         // Profile updated!
                         // ...
+                        const { uid, email, displayName, photoURL } = auth.currentUser;
+
+                        dispatch(addUser({ uid: uid, email: email, displayName: displayName, photoURL: photoURL }))
                         navigate("/browse")
-                      }).catch((error) => {
+                    }).catch((error) => {
                         // An error occurred
                         // ...
                         setErrorMessage(error)
-                      })
+                    })
                 })
-                
+
                 .catch((error) => {
                     const errorCode = error.code;
                     const errorMessage = error.message;
