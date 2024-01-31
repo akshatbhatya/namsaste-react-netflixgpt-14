@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
-import { signOut } from "firebase/auth";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from '../Utils/firebase';
 import { useDispatch, useSelector } from 'react-redux';
+import { addUser, removeUser } from '../Store/MovieSlice';
+
+
 
 
 
@@ -22,6 +25,24 @@ const Header = () => {
             navigate("/error")
         });
     }
+
+    useEffect(()=>{
+        onAuthStateChanged(auth, (user) => {
+          if (user) {
+            const { uid ,email,displayName,photoURL}=user;
+      
+            dispatch(addUser({uid:uid,email:email,displayName:displayName,photoURL:photoURL}))
+            navigate("/browse")
+      
+            // ...
+          } else {
+            // User is signed out
+            // ...
+            dispatch(removeUser())
+            navigate("/")
+          }
+        });
+      },[])
 
     let isSignup = getLocationOfPage.pathname === "/signup";
     let browsePage = getLocationOfPage.pathname === "/browse";

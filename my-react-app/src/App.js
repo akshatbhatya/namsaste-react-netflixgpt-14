@@ -1,20 +1,14 @@
 import Body from "./Components/Body";
 import Browse from "./Components/Browse";
 import Login from "./Components/Login";
-import {RouterProvider, createBrowserRouter, useNavigate} from "react-router-dom"
+import {Navigate, RouterProvider, createBrowserRouter, useNavigate} from "react-router-dom"
 import Signup from "./Components/Signup";
 import {useDispatch} from "react-redux"
 
-import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "./Utils/firebase";
-import { useEffect } from "react";
 
-import {addUser,removeUser} from "./Store/MovieSlice"
 
 
 function App() {
-
-  let dispatch=useDispatch()
 
 
   let routerOfElement = createBrowserRouter([
@@ -41,21 +35,7 @@ function App() {
     
 ])
 
-useEffect(()=>{
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      const { uid ,email,displayName,photoURL}=user;
 
-      dispatch(addUser({uid:uid,email:email,displayName:displayName,photoURL:photoURL}))
-
-      // ...
-    } else {
-      // User is signed out
-      // ...
-      dispatch(removeUser())
-    }
-  });
-},[])
   return (
     <>
     
