@@ -5,7 +5,7 @@ let initialState={
     movies:null
 }
 
-let moviveSlice=createSlice({
+let movieSlice=createSlice({
     name:"movies",
     initialState,
     reducers:{
@@ -16,6 +16,6 @@ let moviveSlice=createSlice({
     }
 })
 
-export const {addMovies}=moviveSlice.actions
+export const {addMovies}=movieSlice.actions
 
-export default moviveSlice.reducer
+export default movieSlice.reducer

@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 let initialState=[]
 
-let MovieSlice=createSlice(
+let userSlice=createSlice(
     {
         name:"user",
         initialState,
@@ -23,5 +23,5 @@ let MovieSlice=createSlice(
     
 )
 
-export const {addUser,removeUser}=MovieSlice.actions;
-export default MovieSlice.reducer;
+export const {addUser,removeUser}=userSlice.actions;
+export default userSlice.reducer;
