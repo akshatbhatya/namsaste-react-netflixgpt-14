@@ -6,7 +6,7 @@ import { auth } from '../Utils/firebase';
 import { useNavigate } from 'react-router-dom';
 import { updateProfile } from "firebase/auth";
 import { useDispatch } from 'react-redux';
-import { addUser, removeUser } from '../Store/userSlice';
+import { addUser } from '../Store/userSlice';
 
 
 
