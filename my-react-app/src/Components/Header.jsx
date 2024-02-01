@@ -10,7 +10,7 @@ import { addUser, removeUser } from '../Store/userSlice';
 
 
 const Header = () => {
-    let data = useSelector(state => state.movie) || {}
+    let data = useSelector(state => state.user) || {}
     let getLocationOfPage = useLocation();
     let navigate = useNavigate()
     let dispatch=useDispatch()
