@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { options } from "../Constants/Constant";
 import { useEffect } from "react";
-import { addMovies } from "../Store/MovieSlice";
+
 
 function GetData(){
   let dispatch=useDispatch()

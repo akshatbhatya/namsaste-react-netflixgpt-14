@@ -5,8 +5,12 @@ import FormValidation from './FormValidation';
 import { auth } from '../Utils/firebase';
 import { useNavigate } from 'react-router-dom';
 import { updateProfile } from "firebase/auth";
+import { addUser } from '../Store/userSlice';
+import { useDispatch } from 'react-redux';
+
 
 function Forms() {
+    let dispatch=useDispatch()
     let navigate = useNavigate()
     let photoURL = "https://w7.pngwing.com/pngs/178/595/png-transparent-user-profile-computer-icons-login-user-avatars-thumbnail.png"
 
@@ -35,7 +39,6 @@ function Forms() {
                 .then((userCredential) => {
                     // Signed up 
                     const user = userCredential.user;
-                    console.log(user);
 
                     // ...
                     updateProfile(user, {
@@ -67,7 +70,6 @@ function Forms() {
                 .then((userCredential) => {
                     // Signed in 
                     const user = userCredential.user;
-                    console.log(user);
                     navigate("/browse")
                     // ...
                 })
