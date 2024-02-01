@@ -1,6 +1,6 @@
 import React from 'react'
 
-function SecondaryContainer() {
+function VideoBackground() {
   return (
     <div>
       
@@ -8,5 +8,4 @@ function SecondaryContainer() {
   )
 }
 
-export default SecondaryContainer
- 
+export default VideoBackground
