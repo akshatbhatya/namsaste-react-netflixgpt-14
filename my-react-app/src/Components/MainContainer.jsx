@@ -4,18 +4,16 @@ import VideoTitle from './VideoTitle';
 import VideoBackground from './VideoBackground';
 
 function MainContainer() {
-    let movies=useSelector((state)=>state?.movie?.movies)
-    if(!movies)return null
-    let oneVideo=movies[0]
+  let movies = useSelector((state) => state?.movie?.movies)
+  if (!movies) return null
+  let oneVideo = movies[0]
 
-    let {title,overview,id}=oneVideo
-    console.log(id);
+  let { title, overview, id } = oneVideo
 
-    console.log(movies,"movies from main container");
   return (
     <div>
-      <VideoTitle title={title} overview={overview}/>
-      <VideoBackground videoId={id}/>
+      <VideoTitle title={title} overview={overview} />
+      <VideoBackground videoId={id} />
     </div>
   )
 }
