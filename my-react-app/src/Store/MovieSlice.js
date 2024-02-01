@@ -1,27 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-let initialState=[]
 
-let MovieSlice=createSlice(
-    {
-        name:"movies",
-        initialState,
-        reducers:{
-                addUser:(state,action)=>{
-                    
-                    state.push(action.payload)
-                    
-                },
-                removeUser:()=>{
-                    return initialState
-                    
-                }
-            }
+let initialState={
+    movies:null
+}
+
+let moviveSlice=createSlice({
+    name:"movies",
+    initialState,
+    reducers:{
+        addMovies:(state,action)=>{
+            state.movies=action.payload
+
         }
-        
+    }
+})
 
-    
-)
+export const {addMovies}=moviveSlice.actions
 
-export const {addUser,removeUser}=MovieSlice.actions;
-export default MovieSlice.reducer;
+export default moviveSlice.reducer

@@ -3,7 +3,7 @@ import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from '../Utils/firebase';
 import { useDispatch, useSelector } from 'react-redux';
-import { addUser, removeUser } from '../Store/MovieSlice';
+import { addUser, removeUser } from '../Store/userSlice';
 
 
 
