@@ -12,7 +12,7 @@ function MainContainer() {
 
   return (
     <div>
-      <VideoTitle title={title} overview={overview} />
+      <VideoTitle  title={title} overview={overview}  />
       <VideoBackground videoId={id} />
     </div>
   )
