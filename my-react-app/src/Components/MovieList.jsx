@@ -3,7 +3,7 @@ import MovieCard from './MovieCard'
 
 function MovieList({ Movies }) {
   return (
-    <div className=' bg-black'>
+    <div className=' bg-black pt-5'>
 
       <div className='mx-5 mt-7'>
 
