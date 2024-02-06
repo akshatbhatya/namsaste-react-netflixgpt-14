@@ -1,20 +1,28 @@
 import React from 'react'
 import MovieList from './MovieList'
-import {useSelector} from "react-redux"
+import { useSelector } from "react-redux"
 
 function SecondaryContainer() {
 
-  let MovieData=useSelector(store=>store.movie.movies);
-  
-  if(MovieData.length==0)return
+  let MovieData = useSelector(store => store.movie.movies);
+
+  if (MovieData.length == 0) return
   return (
     <>
+      <div className=' bg-black'>
 
-    <MovieList Movies={MovieData} />
-      
+        <div className='relative -top-80'>
+
+
+        <MovieList Movies={MovieData} title={"Now Playing"} />
+        <MovieList Movies={MovieData} title={"Trending"} />
+        <MovieList Movies={MovieData} title={"New Releases"} />
+        <MovieList Movies={MovieData} title={"TOp Rated"} />
+        </div>
+      </div>
+
     </>
   )
 }
 
 export default SecondaryContainer
- 

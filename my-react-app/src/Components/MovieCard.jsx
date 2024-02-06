@@ -2,7 +2,6 @@ import { IMAGE_PATH } from '../Constants/Constant'
 
 
 function MovieCard({imagePath}) {
-  console.log(imagePath);
   if(!imagePath)return
 
 
@@ -11,7 +10,9 @@ function MovieCard({imagePath}) {
   return (
     <div>
 
-      <img src={IMAGE_PATH + imagePath?.poster_path} className='w-52 h-60' alt="" />
+      
+
+      <img src={IMAGE_PATH + imagePath?.poster_path} className='w-52 h-60'  alt="" />
 
     </div>
   )
