@@ -1,10 +1,18 @@
 import React from 'react'
+import MovieList from './MovieList'
+import {useSelector} from "react-redux"
 
 function SecondaryContainer() {
+
+  let MovieData=useSelector(store=>store.movie.movies);
+  console.log(MovieData);
+  if(MovieData.length==0)return
   return (
-    <div>
+    <>
+
+    <MovieList Movies={MovieData} />
       
-    </div>
+    </>
   )
 }
 
