@@ -27,8 +27,12 @@ function App() {
           }
         ],
         errorElement:<>
+        <div className="flex items-center flex-col mt-40 justify-center">
+
         <h3 className="text-center">Something Went Wrong</h3>
-        <NavLink to={"/"}><button className="bg-green-500 px-3 rounded-md" >Home</button></NavLink>
+        <br/>
+        <NavLink to={"/"}><button className="bg-green-500 px-3 rounded-md text-white" >Home</button></NavLink>
+        </div>
         </>
     },
 
