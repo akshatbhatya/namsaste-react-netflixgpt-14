@@ -1,13 +1,23 @@
 import React from 'react'
 import MovieCard from './MovieCard'
 
-function MovieList(MovieData) {
+function MovieList({Movies}) {
   return (
-    <div className='mx-5 mt-7'>
+    <div className='mx-5 mt-7 bg-black'>
 
-    <h2 className='mb-7'>Now Playing</h2>
+    <h2 className='mb-7 text-white'>Now Playing</h2>
+   
+   <div className='flex flex-wrap gap-5 justify-center'>
 
-   <MovieCard  imagePath={MovieData.Movies}/>
+   {
+    Movies.map((item,i)=>{
+      return <MovieCard key={i} imagePath={item}/>
+    })
+   }
+    
+   </div>
+   
+   
       
     </div>
   )
