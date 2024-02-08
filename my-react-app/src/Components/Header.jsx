@@ -73,6 +73,11 @@ const Header = () => {
 
                     )
                 }
+
+                {browsePage &&
+                    <button className='bg-green-600 text-white px-3 py-1 rounded-md mx-2'>Gpt Search
+                    </button>}
+
                 {
                     browsePage && (<NavLink ><button className="list-none bg-red-600 px-3 py-2 text-white rounded-md" onClick={HandleSignOut}>sign Out</button></NavLink>)
                 }

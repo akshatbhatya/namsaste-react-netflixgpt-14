@@ -100,7 +100,7 @@ function Forms() {
                     isSign && <input type="text" placeholder='full name' className='capitalize w-auto text-white p-2 bg-slate-800' name='fullname' onChange={handleOnchange} value={formInput.fullname} />
                 }
 
-                <input type="email" placeholder='Enter your Email' className='capitalize w-auto text-white p-2 bg-slate-800' name='email' onChange={handleOnchange} value={formInput.email} />
+                <input type="email" placeholder='Enter your Email' className=' w-auto text-white p-2 bg-slate-800' name='email' onChange={handleOnchange} value={formInput.email} />
 
                 <input type="password" placeholder='password' className='capitalize w-auto  text-white p-2 bg-slate-800' name='password' onChange={handleOnchange} value={formInput.password} />
                 <p className='text-red-700 font-medium'>{errorMessage}</p>
