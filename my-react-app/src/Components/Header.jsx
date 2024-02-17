@@ -16,6 +16,8 @@ const Header = () => {
     let navigate = useNavigate()
     let dispatch = useDispatch()
 
+    let checkBtnStatus=useSelector(state=>state.gptButton.toogleSearch)
+
     let HandleSignOut = () => {
 
 
@@ -76,7 +78,7 @@ const Header = () => {
                 }
 
                 {browsePage &&
-                    <button className='bg-green-600 text-white px-3 py-1 rounded-md mx-2' onClick={()=>dispatch(setState())}>Gpt Search
+                    <button className='bg-green-600 text-white px-3 py-1 rounded-md mx-2' onClick={()=>dispatch(setState())}>{checkBtnStatus?"Home Page":"Gpt Search"}
                     </button>}
 
                 {
