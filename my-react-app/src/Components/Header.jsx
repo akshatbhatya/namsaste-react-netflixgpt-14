@@ -67,7 +67,7 @@ const Header = () => {
 
 
                     )
-                }
+                } 
                 {
                     browsePage && (
                         <img src={data.photoURL} alt="" />

@@ -6,7 +6,7 @@ function SecondaryContainer() {
 
   let MovieData = useSelector(store => store.movie.movies);
 
-  if (MovieData.length == 0) return
+  if (!MovieData) return
   return (
     <>
       <div className=' bg-black'>
