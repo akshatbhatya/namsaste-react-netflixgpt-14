@@ -4,6 +4,7 @@ import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from '../Utils/firebase';
 import { useDispatch, useSelector } from 'react-redux';
 import { addUser, removeUser } from '../Store/userSlice';
+import {setState} from '../Store/gptSearchSlice';
 
 
 
@@ -75,7 +76,7 @@ const Header = () => {
                 }
 
                 {browsePage &&
-                    <button className='bg-green-600 text-white px-3 py-1 rounded-md mx-2'>Gpt Search
+                    <button className='bg-green-600 text-white px-3 py-1 rounded-md mx-2' onClick={()=>dispatch(setState())}>Gpt Search
                     </button>}
 
                 {
